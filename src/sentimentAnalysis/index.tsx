@@ -35,7 +35,7 @@ function SentimentAnalysis(): JSX.Element {
       <Text style={styles.sectionTitle}>Welcome to the Reflect</Text>
       <TextInput
         style={styles.inputFeild}
-        placeholder="Enter Text"
+        placeholder="Enter Text"   
         onChangeText={onChangeValue}
         value={input}
       />
