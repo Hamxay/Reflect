@@ -10,14 +10,13 @@ import {StyleSheet, Text, View, TextInput} from 'react-native';
 // import {vader} from 'vader-sentiment'
 function SentimentAnalysis(): JSX.Element {
   const [input, setInput] = useState<string>('');
-  const [result, setResult] = useState<number>(0);
+  const [result, setResult] = useState<number>();
   const [word, setWord] = useState<string>('');
   const onChangeValue = (text: string) => {
     setInput(text);
   };
   const vader = require('vader-sentiment');
   const intensity = vader.SentimentIntensityAnalyzer.polarity_scores(input);
-  console.log(intensity);
   useEffect(() => {
     if (input.length > 0 && intensity.compound > 0.05) {
       setWord('Positive');
@@ -26,7 +25,6 @@ function SentimentAnalysis(): JSX.Element {
     } else {
       setWord('Neutral');
     }
-
     let temp = intensity.compound * 100;
 
     temp = Math.abs(temp);
@@ -44,7 +42,7 @@ function SentimentAnalysis(): JSX.Element {
       <Text style={styles.text}>{input}</Text>
       {input.length > 0 && (
         <Text style={styles.text}>
-          {result != 0 ? result + '%':0 + '%'} {word}
+          {result != 0 ? result + '%' : 100 + '%'} {word}
         </Text>
       )}
     </View>
@@ -53,10 +51,9 @@ function SentimentAnalysis(): JSX.Element {
 
 const styles = StyleSheet.create({
   sectionContainer: {
-    alignContent:'center',
+    alignContent: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-
   },
   sectionTitle: {
     fontSize: 24,
@@ -64,16 +61,15 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'center',
     padding: 30,
-    fontFamily: 'Orbitron',
   },
   inputFeild: {
     borderWidth: 1,
     width: '90%',
     borderRadius: 5,
     backgroundColor: 'black',
-    borderColor:'white',
-    color:'white'
-
+    borderColor: 'white',
+    color: 'white',
+    height: '15%',
   },
   text: {
     fontSize: 16,

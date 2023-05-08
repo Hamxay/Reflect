@@ -1,12 +1,17 @@
 import React from 'react';
-import {View} from 'react-native';
+import {SafeAreaView, StatusBar, View} from 'react-native';
 import SentimentAnalysis from './src/sentimentAnalysis';
 
 function App() {
   return (
-    <View style={{  backgroundColor: 'black', flex:1, justifyContent:'center'}}>
+    <SafeAreaView style={{  backgroundColor: 'black', flex:1, justifyContent:'center'}}>
+      <StatusBar
+        backgroundColor={'black'}
+        barStyle={'light-content'}
+      />
+    {/* <SafeAreaView style={{  backgroundColor: 'black', flex:1, justifyContent:'center'}}> */}
       <SentimentAnalysis />
-    </View>
+    </SafeAreaView>
   );
 }
 
