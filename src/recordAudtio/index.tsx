@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import Voice, {
+
   SpeechRecognizedEvent,
   SpeechResultsEvent,
   SpeechErrorEvent,
@@ -123,7 +124,6 @@ const VoiceTest = () => {
         <Text style={styles.instructions}>
           Press the button and start speaking.
         </Text>
-        <Text style={styles.stat}>{`Started: ${started}`}</Text>
         <Text style={styles.stat}>{`Recognized: ${
           recognized
         }`}</Text>
@@ -137,14 +137,7 @@ const VoiceTest = () => {
             </Text>
           );
         })}
-        <Text style={styles.stat}>Partial Results</Text>
-        {partialResults.map((result, index) => {
-          return (
-            <Text key={`partial-result-${index}`} style={styles.stat}>
-              {result}
-            </Text>
-          );
-        })}
+      
         <Text style={styles.stat}>{`End: ${end}`}</Text>
         <TouchableHighlight onPress={_startRecognizing}>
             <Text style={styles.action}>Click to Start/STop</Text>
