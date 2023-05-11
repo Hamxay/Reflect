@@ -1729,6 +1729,11 @@
   dependencies:
     "@sinonjs/commons" "^2.0.0"
 
+"@supersami/rn-foreground-service@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/@supersami/rn-foreground-service/-/rn-foreground-service-2.1.0.tgz"
+  integrity sha512-Ou++vMcW42uZDuZr7wWMJYKZL7Ui1Z5lfY5fg7LT2vVwuuDNjjFf4RCHxul9y33VcoQrPTyPJhd0jQ3+3kFi8w==
+
 "@tsconfig/react-native@^2.0.2":
   version "2.0.3"
   resolved "https://registry.npmjs.org/@tsconfig/react-native/-/react-native-2.0.3.tgz"
@@ -5953,7 +5958,7 @@ react-native-permissions@^3.8.0:
     picocolors "^1.0.0"
     pkg-dir "^5.0.0"
 
-"react-native@>= 0.60.2", react-native@>=0.47.0, react-native@>=0.63.3, react-native@0.71.7:
+"react-native@>= 0.60.2", react-native@>=0.47.0, react-native@>=0.59.0, react-native@>=0.63.3, react-native@0.71.7:
   version "0.71.7"
   resolved "https://registry.npmjs.org/react-native/-/react-native-0.71.7.tgz"
   integrity sha512-Id6iRLS581fJMFGbBl1jP5uSmjExtGOvw5Gvh7694zISXjsRAsFMmU+izs0pyCLqDBoHK7y4BT7WGPGw693nYw==
