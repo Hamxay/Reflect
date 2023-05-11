@@ -48,7 +48,6 @@ const Service = () => {
   };
 
   const onSpeechError = (e: SpeechErrorEvent) => {
-    console.log('onSpeechError: ', e);
     setError(JSON.stringify(e.error));
   };
 
@@ -58,12 +57,10 @@ const Service = () => {
   };
 
   const onSpeechPartialResults = (e: any) => {
-    console.log('onSpeechPartialResults: ', e);
     // setPartialResults(e.value);
   };
 
   const onSpeechVolumeChanged = (e: any) => {
-    console.log('onSpeechVolumeChanged: ', e);
     setPitch(e.value);
   };
 
@@ -120,7 +117,7 @@ const Service = () => {
 
   useEffect(() =>{
     if(started){
-      ReactNativeForegroundService.add_task(() => _startRecognizing, {
+      ReactNativeForegroundService.add_task(() => _startRecognizing(), {
         delay: 100,
         onLoop: true,
         taskId: "taskid",
@@ -139,8 +136,8 @@ const Service = () => {
   };
 
   const stopService = () => {
-    _stopRecognizing()
     ReactNativeForegroundService.stop()
+    _stopRecognizing()
   };
 
   return (
@@ -165,7 +162,9 @@ const Service = () => {
         })}
       
         <Text style={styles.stat}>{`End: ${end}`}</Text>
-        <Button onPress={_startRecognizing} title="Start Service" />
+        <Button onPress={startService} title="Start Service" />
+
+        
         <Button onPress={stopService} title="Stop Service" />
        
         <TouchableHighlight onPress={_cancelRecognizing}>
