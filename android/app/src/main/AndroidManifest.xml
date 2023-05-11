@@ -29,5 +29,9 @@
       android:enabled="true"
       android:exported="true"
   android:foregroundServiceType="mediaProjection" />
+  <service
+    android:name="com.reflect.BackgroundAudioService"
+    android:enabled="true"
+    android:exported="false" />
     </application>
 </manifest>

@@ -13,6 +13,7 @@
     "@react-native-voice/voice": "^3.2.4",
     "react": "18.2.0",
     "react-native": "0.71.7",
+    "react-native-background-actions": "^3.0.0",
     "react-native-permissions": "^3.8.0",
     "vader-sentiment": "^1.1.3"
   },
