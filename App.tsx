@@ -26,8 +26,8 @@ function App() {
       />
     {/* <SafeAreaView style={{  backgroundColor: 'black', flex:1, justifyContent:'center'}}> */}
       {/* <SentimentAnalysis /> */}
-      <VoiceTest/>
-      {/* <Services/> */}
+      {/* <VoiceTest/> */}
+      <Services/>
     </SafeAreaView>
   );
 }
