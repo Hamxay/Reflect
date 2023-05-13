@@ -10,9 +10,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-community/voice": "^1.1.9",
     "@react-native-voice/voice": "^3.2.4",
     "react": "18.2.0",
     "react-native": "0.71.7",
+    "react-native-background-fetch": "^4.1.10",
+    "react-native-background-task": "^0.2.1",
     "react-native-permissions": "^3.8.0",
     "vader-sentiment": "^1.1.3"
   },
