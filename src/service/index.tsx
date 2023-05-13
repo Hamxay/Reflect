@@ -57,7 +57,8 @@ const Service = () => {
   };
 
   const onSpeechPartialResults = (e: any) => {
-    // setPartialResults(e.value);
+    console.log('onSpeechPartialResults: ', e);
+    setPartialResults(e.value);
   };
 
   const onSpeechVolumeChanged = (e: any) => {
@@ -79,8 +80,10 @@ const Service = () => {
     }
   };
 
+
   const _stopRecognizing = async () => {
     try {
+      console.log("stop recognizing");
       await Voice.stop();
     } catch (e) {
       console.error(e);
@@ -111,33 +114,20 @@ const Service = () => {
 
 
 
-
-
-
-
-  useEffect(() =>{
-    if(started){
-      ReactNativeForegroundService.add_task(() => _startRecognizing(), {
-        delay: 100,
-        onLoop: true,
-        taskId: "taskid",
-        onError: (e) => console.log(`Error logging:`, e),
-      });
-    }
-   
-  },[started])
-  const startService = () => {
-    ReactNativeForegroundService.start({
+  const startService = async () => {
+    await ReactNativeForegroundService.start({
       id: 144,
       title: "Foreground Service",
       message: "you are online!",
     });
+
+    await _startRecognizing()
     
   };
 
-  const stopService = () => {
-    ReactNativeForegroundService.stop()
-    _stopRecognizing()
+  const stopService = async () => {
+    await ReactNativeForegroundService.stop()
+    await _stopRecognizing()
   };
 
   return (
@@ -160,8 +150,16 @@ const Service = () => {
             </Text>
           );
         })}
-      
+         <Text style={styles.stat}>Partial Results</Text>
+        {partialResults.map((result, index) => {
+          return (
+            <Text key={`partial-result-${index}`} style={styles.stat}>
+              {result}
+            </Text>
+          );
+        })}
         <Text style={styles.stat}>{`End: ${end}`}</Text>
+
         <Button onPress={startService} title="Start Service" />
 
         

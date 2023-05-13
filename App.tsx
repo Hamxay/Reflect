@@ -3,7 +3,8 @@ import {Platform, SafeAreaView, StatusBar, View} from 'react-native';
 import SentimentAnalysis from './src/sentimentAnalysis';
 import {request, PERMISSIONS, checkMultiple} from 'react-native-permissions';
 import VoiceTest from './src/recordAudtio';
-import Services from './src/service';
+import Service from './src/service';
+import FinalScreen from './src/finalScreen';
 function App() {
   const IOSPermissions = async() =>{
     await checkMultiple([PERMISSIONS.IOS.MICROPHONE]).then((statuses) => {
@@ -27,7 +28,7 @@ function App() {
     {/* <SafeAreaView style={{  backgroundColor: 'black', flex:1, justifyContent:'center'}}> */}
       {/* <SentimentAnalysis /> */}
       {/* <VoiceTest/> */}
-      <Services/>
+      <FinalScreen/>
     </SafeAreaView>
   );
 }
